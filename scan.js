@@ -11,9 +11,9 @@ noble.on('discover', function(peripheral) {
 				url: 'http://05ee2283.ngrok.io/assistances',
 				method: 'POST',
 				data: {
-					"assistance"=>{
-						"uuid"=>macAddress,
-						"lesson_id"=>9
+					"assistance":{
+						"uuid":macAddress,
+						"lesson_id":9
 					}
 				}
 			}, function(err, res, body){
