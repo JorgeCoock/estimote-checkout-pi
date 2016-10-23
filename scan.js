@@ -6,14 +6,15 @@ noble.on('discover', function(peripheral) {
 		if(localName == "estimote"){
 			var macAddress = peripheral.uuid;
 	                var rss = peripheral.rssi;
-		        console.log('found: ', macAddress, ' ', rss, ' ', localName);
+			console.log('found: ', macAddress, ' ', rss, ' ', localName);
 			request({
-				url: 'http://jsonplaceholder.typicode.com/posts',
+				url: 'http://05ee2283.ngrok.io/assistances',
 				method: 'POST',
 				data: {
-					title: macAddress,
-					body: 'checked',
-					userId: 1
+					"assistance"=>{
+						"uuid"=>macAddress,
+						"lesson_id"=>9
+					}
 				}
 			}, function(err, res, body){
 				console.log(body);
